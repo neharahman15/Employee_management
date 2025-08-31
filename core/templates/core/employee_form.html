@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<h2>{% if employee %}Edit{% else %}Add{% endif %} Employee</h2>
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="first_name" placeholder="First Name" value="{{ employee.first_name|default:'' }}" required><br>
+  <input type="text" name="last_name" placeholder="Last Name" value="{{ employee.last_name|default:'' }}" required><br>
+  <input type="email" name="email" placeholder="Email" value="{{ employee.email|default:'' }}" required><br>
+  <input type="text" name="department" placeholder="department" value="{{ employee.department|default:'' }}" required><br>
+  <input type="text" name="position" placeholder="position" value="{{ employee.position|default:'' }}" required><br>
+  
+  <button type="submit">Save</button>
+</form>
+<a href="{% url 'core:employee_list' %}">Back to list</a>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'core/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>Welcome {% if user.is_authenticated %}{{ user.username }}{% else %}Guest{% endif %}</h1>
+<p>This is the Employee Management System skeleton. Next we will add Dynamic Form Builder and Employee CRUD.</p>
+{% endblock %}

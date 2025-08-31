@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+{% block title %}Preview{% endblock %}
+
+{% block content %}
+<h2>{{ form.title }}</h2>
+<div class="form-box">
+    <form>
+        {% for field in form.fields.all %}
+            <div class="field-row">
+                <label>{{ field.label }}</label>
+                <input type="{{ field.field_type }}" name="{{ field.label|slugify }}" />
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

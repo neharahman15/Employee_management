@@ -1,0 +1,92 @@
+{% extends "core/base.html" %}
+{% block title %}Form Builder{% endblock %}
+
+{% block content %}
+<h2>Form Design</h2>
+
+<div id="formFields" class="form-box">
+  <!-- Fields will be added here -->
+</div>
+
+<div class="actions">
+  <button type="button" id="addField">Add Field</button>
+  <button type="button" id="saveForm">Save</button>
+</div>
+
+<script>
+    let fieldsContainer = document.getElementById("formFields");
+
+    document.getElementById("addField").onclick = function () {
+        let div = document.createElement("div");
+        div.className = "field-row";
+        div.innerHTML = `
+            <input type="text" placeholder="Label" class="field-label" />
+            <select class="field-type">
+                <option value="text">Text</option>
+                <option value="number">Number</option>
+                <option value="date">Date</option>
+                <option value="password">Password</option>
+            </select>
+        `;
+        fieldsContainer.appendChild(div);
+    };
+
+    document.getElementById("saveForm").onclick = async function () {
+        let fields = [];
+        document.querySelectorAll(".field-row").forEach((el) => {
+            fields.push({
+                label: el.querySelector(".field-label").value,
+                type: el.querySelector(".field-type").value
+            });
+        });
+
+        let response = await fetch("", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            body: JSON.stringify({ title: "Employee Form", fields: fields })
+        });
+
+        let data = await response.json();
+        if (data.status === "success") {
+            window.location.href = "/form-preview/" + data.form_id + "/";
+        }
+    };
+</script>
+
+<style>
+    .form-box {
+        border: 2px solid black;
+        padding: 15px;
+        width: 400px;
+        margin-bottom: 15px;
+    }
+
+    .field-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .field-row input,
+    .field-row select {
+        flex: 1;
+        margin-right: 5px;
+        padding: 5px;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        width: 120px;
+    }
+
+    .actions button {
+        margin-bottom: 10px;
+        padding: 8px;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}

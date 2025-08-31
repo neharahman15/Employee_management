@@ -1,0 +1,9 @@
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background:#f5f7fa; color:#222; }
+.nav { background: #2b6cb0; padding: 10px; color: white; }
+.nav a { color: white; margin-right: 12px; text-decoration: none; }
+.container { padding: 20px; max-width: 900px; margin: 20px auto; background: white; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.08);}
+button { background:#2b6cb0; color:white; border:none; padding:8px 12px; border-radius:4px; cursor:pointer; }
+.messages { list-style: none; padding:0; }
+.msg { margin:6px 0; padding:8px; border-radius:4px; }
+.msg.error { background:#ffe0e0; color:#900; }
+.msg.success { background:#dff0d8; color:#2a6f2a; }
