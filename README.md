@@ -5,7 +5,7 @@ This project allows users to register/login and perform full **CRUD operations**
 
 ---
 
-## 🚀 Features
+Features
 - User authentication (Register, Login, Logout)
 - Add new employees with details (name, email, department, position, etc.)
 - View all employees in a list/table
@@ -15,7 +15,7 @@ This project allows users to register/login and perform full **CRUD operations**
 
 ---
 
-## 🛠️ Tech Stack
+ Tech Stack
 - **Backend**: Django (Python)
 - **Database**: SQLite (default)
 - **Frontend**: HTML, CSS, Bootstrap (templates)
@@ -23,7 +23,7 @@ This project allows users to register/login and perform full **CRUD operations**
 
 ---
 
-## ⚡ Installation & Setup
+ Installation & Setup
 
 ### 1. Clone the repository
 ```bash
