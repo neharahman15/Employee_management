@@ -12,6 +12,11 @@ Features
 - Edit employee details
 - Delete employees
 - Responsive HTML templates
+  - **Form Builder**
+  - Create custom forms dynamically
+  - Preview forms before saving
+
+
 
 ---
 
